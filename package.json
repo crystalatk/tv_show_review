@@ -1,0 +1,24 @@
+{
+  "name": "tv_show_review",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "createdb class_survey",
+    "db:destroy": "dropdb class_survey",
+    "db:init": "psql -f schema.sql class_survey",
+    "db:seed": "psql -f seed.sql class_survey",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init && npm run db:seed",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-es6-template-engine": "^2.2.3",
+    "pg-promise": "^10.9.2"
+  }
+}

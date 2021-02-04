@@ -1,0 +1,91 @@
+:root {
+  --font-blue: rgb(121, 178, 252);
+  --font-white: rgb(247, 249, 252);
+  --font-pink: rgb(199, 136, 168);
+  --background: rgb(30, 39, 58);
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--font-pink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  top: 0;
+}
+
+h1 {
+  color: var(--font-blue);
+  font-size: 2.5rem;
+  padding: 50px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+a {
+  color: var(--font-blue);
+  width: fit-content;
+}
+
+a:hover {
+  color: var(--font-blue);
+}
+
+img {
+  border-radius: 20px;
+  margin: auto;
+  margin-bottom: 50px;
+  max-height: 300px;
+}
+
+hr {
+  background-color: var(--background);
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 217, 255, 0),
+    rgba(121, 178, 252),
+    rgba(0, 217, 255, 0)
+  );
+  margin: auto auto 30px;
+  width: 75%;
+}
+
+ul {
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+li {
+  display: inline-block;
+  margin: auto 20px;
+}
+
+button {
+  background-color: var(--background);
+  border: 1px solid var(--font-white);
+  border-radius: 10px;
+  color: var(--font-white);
+  margin: 20px auto;
+}
+
+button:hover {
+  background-color: var(--font-white);
+  color: var(--background);
+}
