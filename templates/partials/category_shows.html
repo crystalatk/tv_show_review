@@ -6,17 +6,19 @@
                 <h1>${title}</h1>
                 <hr>
                 <section class="is-fluid columns is-multiline is-desktop is-tablet is-centered">
-                    ${catList.map(cat => 
+                    ${showsByCat.map(show => 
                         `<div class="card card-shadow column blue-background p-0 m-1 is-one-quarter">
-                            <a href="/categories/${cat.id}">
+                            <a href="/shows/${show.id}">
+                                <div class="card-image">
+                                    <figure class="image is-4by5 movie-image">
+                                    <img class="movie-image" src="${show.poster.replace('http:', 'https:')}" alt="${show.title} poster">
+                                    </figure>
+                                </div>
                             <div class="card-content has-text-white-bis">
                                 <div class="media">
                                     <div class="media-content">
-                                        <p class="title is-4 has-text-white-bis">${cat.name}</p>
+                                        <p class="title is-4 has-text-white-bis">${show.title}</p>
                                     </div>
-                                </div>
-                                <div class="content">
-                                    ${cat.description}
                                 </div>
                             </div>
                             </a>

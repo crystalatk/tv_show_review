@@ -24,9 +24,9 @@ SERVER.listen(PORT, HOSTNAME, () => {
 });
 
 const rootController = require('./routes/index'),
-    showsController = require('./routes/shows');
-    // usersController = require('./routes/users');
+    showsController = require('./routes/shows'),
+    categoriesController = require('./routes/categories');
 
 app.use('/', rootController);
 app.use('/shows', showsController);
-// app.use('/users', usersController);
+app.use('/categories', categoriesController);

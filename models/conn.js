@@ -1,7 +1,7 @@
 'use strict';
 
 const host = 'localhost',
-    database = 'class_survey',
+    database = 'tv_shows',
     user = 'postgres';
 
 

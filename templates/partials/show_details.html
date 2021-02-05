@@ -1,0 +1,65 @@
+<div class="">
+  <div class="container has-text-centered">
+    <section class="container is-fluid">
+      <section class="hero">
+          <p class="title is-1 block blue">
+            ${thisShow.title}
+          </p>
+          <p class="subtitle is-4 block">
+            <img class="m-1" src="${thisShow.poster}" alt="" >
+          </p>
+          <div class="m-1 columns">
+            <div class="column is-one-half has-text-left">
+              <h3 class="title is-4 pink">Details:</h3>
+              <p class="subtitle is-6 white">
+                <b>Where to Watch:</b> ${thisShow.where2watch}
+                <br>
+                <b>Actors:</b> ${thisShow.actor1_name}, ${thisShow.actor2_name}, and ${thisShow.actor3_name}
+                <br>
+                <b>Dates Aired:</b> ${thisShow.dates_aired}
+                <br>
+                <b>Category:</b> <a href="/categories${thisShow.cat_id}">${thisShow.cat_name}</a>
+                <br>
+              </p>
+            </div>
+            <div class="column is-one half">
+              <h3 class="title is-4 pink">Summary:</h3>
+              <p class="subtitle is-4 white">
+                ${thisShow.plot}
+              </p>
+            </div>
+          </div>
+      </section> 
+    </section>
+  </div>
+</div>
+<div >
+  <ul class="wrap">
+    ${thisShowReviews.map(review =>
+      `<li class="width-set">
+        <h3 class="bold">${review.tagline}</h3>
+        <hr>
+        <h3 class="bold">${review.rating}    ${review.stars} out of 5 stars</h3>
+        <h4 class="bold smaller">${review.user_name}    ${review.posting_date}</h4>
+        <hr>
+        <p class="review-p">${review.review_body}</p>
+      </li>`
+      ).join('')}
+  </ul>
+</div>
+<div>
+  <form action="/shows/${thisShow.id}" method="POST">
+    <label for="tagline">Create a tagline:</label>
+    <input type="text" id="tagline" name="tagline">
+    <label for="review">Write a review:</label>
+    <input type="text" id="review" name="review_body">
+    <label for="">How many stars would you give this show?</label>
+    ${getRatings.map(rating => 
+      `<div class="choices">
+          <input type="radio" id="stars" name="stars_id" value="${rating.id}" required>
+          <label class="blue" for="stars">${rating.name}    ${rating.stars} out of 5 stars</label>
+      </div>`
+    ).join('')}
+    <button type="submit">Submit</button>
+  </form>
+</div>

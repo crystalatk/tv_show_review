@@ -1,8 +1,38 @@
-
-<h1>${title}</h1>
-<hr>
-<section>
-    <img src="/images/tv_shows.jpg" alt="Making a TV Show">
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <section class="container ">
+                <hr>
+                <h1>${title}</h1>
+                <hr>
+                <section class="is-fluid columns is-multiline is-desktop is-tablet is-centered">
+                    ${showsData.map(show => 
+                        `<div class="card card-shadow column blue-background p-0 m-1 is-one-quarter">
+                            <a href="/shows/${show.id}">
+                            <div class="card-image">
+                                <figure class="image is-4by5 movie-image">
+                                <img class="movie-image" src="${show.poster.replace('http:', 'https:')}" alt="${show.title} poster">
+                                </figure>
+                            </div>
+                            <div class="card-content has-text-white-bis">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4 has-text-white-bis">${show.title}</p>
+                                        <p class="subtitle is-6 has-text-white-bis">${show.dates_aired}</p>
+                                        <p class="subtitle is-6 has-text-white-bis">Category: ${show.cat_name}</p>
+                                        <p class="subtitle is-6 has-text-white-bis">Actors: ${show.actor1_name}, ${show.actor2_name}, and ${show.actor3_name}</p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    ${show.plot}
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <br>`
+                    ).join('')}
+                </section>
+            </section>
+        </div>
+    </div>
 </section>
-<p class="">TV Shows!</p>
-<hr>

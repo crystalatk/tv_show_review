@@ -11,7 +11,7 @@ CREATE TABLE actors (
 
 CREATE TABLE shows (
     id serial PRIMARY KEY,
-    name text NOT NULL,
+    title text NOT NULL,
     poster text,
     dates_aired text,
     actor1_id integer REFERENCES actors (id),
@@ -38,12 +38,15 @@ CREATE TABLE ratings (
 
 CREATE TABLE reviews (
     id serial PRIMARY KEY,
-    tagline varchar(20),
-    posting_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    tagline varchar(50),
+    posting_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    review_body text,
     show_id integer REFERENCES shows (id),
     user_id integer REFERENCES users (id),
     stars_id integer REFERENCES ratings (id)
 );
+
+
 
 CREATE TABLE favorites (
     id serial PRIMARY KEY,
