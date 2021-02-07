@@ -105,6 +105,17 @@ class SHOWSModel {
         ON shows.category_id = categories.id WHERE categories.id = ${cat_id};`);
         return response;
     }
+
+    static async getAllActors() {
+        const response = await db.any(`SELECT actors.id, actors.name FROM actors ORDER BY actors.name;`);
+        return response;
+    }
+
+    // static async getShowsByActorID() {
+    //     const response = await db.any(`SELECT * FROM shows
+    //     INNER JOIN actors 
+    //     ON shows.actor1_id`)
+    // }
 };
 
 

@@ -1,0 +1,27 @@
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <section class="container ">
+                <hr>
+                <h1>${title}</h1>
+                <hr>
+                <section class="is-fluid columns is-multiline is-desktop is-tablet is-centered">
+                    ${actorsList.map(actor => 
+                        `<div class="card card-shadow column blue-background p-0 m-1 is-one-quarter">
+                            <a href="/actors/${actor.id}">
+                            <div class="card-content has-text-white-bis">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4 has-text-white-bis">${actor.name}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <br>`
+                    ).join('')}
+                </section>
+            </section>
+        </div>
+    </div>
+</section>
