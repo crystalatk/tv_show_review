@@ -4,6 +4,18 @@ const express = require('express'),
     router = express.Router(),
     showsModel = require('../models/showModel');
 
+router.get('/', (req, res) => {
+    res.render('template', {
+        locals: {
+            title: 'Users',
+        },
+        partials: {
+            header: "partials/header",
+            body: "partials/users_list",
+        }
+    });
+});
+
 router.get('/signup', (req, res) => {
     res.render('template', {
         locals: {
@@ -19,7 +31,7 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('template', {
         locals: {
-            title: 'User Sign-up',
+            title: 'Login',
         },
         partials: {
             header: "partials/header",
