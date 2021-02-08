@@ -111,11 +111,6 @@ class SHOWSModel {
         return response;
     }
 
-    // static async getShowsByActorID() {
-    //     const response = await db.any(`SELECT * FROM shows
-    //     INNER JOIN actors 
-    //     ON shows.actor1_id`)
-    // }
 };
 
 
