@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         locals: {
             title: "TV Show Actors",
             actorsList,
+            is_logged_in: req.session.is_logged_in,
         },
         partials: {
             header: "partials/header",

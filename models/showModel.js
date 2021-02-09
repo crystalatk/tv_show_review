@@ -1,12 +1,11 @@
 'use strict';
 
-const router = require('../routes/shows');
 const db = require('./conn');
 
 class SHOWSModel {
-    constructor(id, name, poster, dates_aired, actor1, actor2, actor3, plot, category, where2watch) {
+    constructor(id, title, poster, dates_aired, actor1, actor2, actor3, plot, category, where2watch) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.poster = poster;
         this.dates_aired = dates_aired;
         this.actor1 = actor1;
@@ -70,7 +69,7 @@ class SHOWSModel {
 
     static async getShowReviews(show_id) {
         const response = await db.any(
-            `SELECT reviews.id, reviews.tagline, reviews.posting_date, reviews.review_body, users.name as user_name, ratings.name as rating, ratings.stars as stars
+            `SELECT reviews.id, reviews.tagline, to_char(reviews.posting_date, 'Mon DD, YYYY') as posting_date, reviews.review_body, users.first_name as user_first_name, ratings.name as rating, ratings.stars as stars
             FROM reviews 
               INNER JOIN shows
               ON reviews.show_id = shows.id 
@@ -84,8 +83,8 @@ class SHOWSModel {
         return response;
     }
 
-    static async addNewReview(tagline, review_body, show_id, stars_id) {
-        const response = await db.result(`INSERT INTO reviews (tagline, review_body, show_id, user_id, stars_id) VALUES ($1, $2, $3, $4, $5)`, [tagline, review_body, show_id, 2, stars_id])
+    static async addNewReview(tagline, review_body, show_id, user_id, stars_id) {
+        const response = await db.result(`INSERT INTO reviews (tagline, review_body, show_id, user_id, stars_id) VALUES ($1, $2, $3, $4, $5)`, [tagline, review_body, show_id, user_id, stars_id])
         return response;
     }
 

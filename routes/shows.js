@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     res.render('template', {
         locals: {
             title: "TV Shows List!",
+            is_logged_in: req.session.is_logged_in,
             showsData,
         },
         partials: {
@@ -24,24 +25,32 @@ router.get('/:show_id', async (req, res) => {
     const thisShow = await showsModel.getThisShow(show_id);
     const thisShowReviews = await showsModel.getShowReviews(show_id);
     const getRatings = await showsModel.getRatings();
-    res.render('template', {
-        locals: {
-            title: thisShow.title,
-            thisShow,
-            thisShowReviews,
-            getRatings,
-        },
-        partials: {
-            header: "partials/header",
-            body: "partials/show_details",
-        }
-    });
+    try {
+        res.render('template', {
+            locals: {
+                title: thisShow.title,
+                thisShow,
+                thisShowReviews,
+                getRatings,
+                is_logged_in: req.session.is_logged_in,
+                user_id: req.session.user_id,
+            },
+            partials: {
+                header: "partials/header",
+                body: "partials/show_details",
+            }
+        });
+    } catch(err) {
+        console.log(err);
+    }
+    
 });
 
 router.post('/:show_id', async (req, res) => {
-    console.log(req.params);
-    const { show_id, review_body, tagline, stars_id } = req.params;
-    const newReview = await showsModel.addNewReview(tagline, review_body, show_id, stars_id);
+    console.log(req.body);
+    const { show_id } = req.params;
+    const { review_body, tagline, user_id, stars_id } = req.body;
+    const newReview = await showsModel.addNewReview(tagline, review_body, show_id, user_id, stars_id);
     res.redirect(`/shows/${show_id}`);
 });
 

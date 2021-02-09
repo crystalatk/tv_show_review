@@ -23,10 +23,7 @@ VALUES ('Shooter', 'https://pics.filmaffinity.com/Shooter_TV_Series-690755032-la
 ('The Office', 'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX182_CR0,0,182,268_AL_.jpg', '2005-2013', 4, 5, 6, 'A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.', 2, 'Prime');
 
 INSERT INTO users (first_name, last_name, password, email, tagline)
-VALUES ('Crystal', 'Atkinson', 'password', 'crystal@me.me', 'Just a girl who likes shows'),
-('Sean', 'Goat', '', '', 'Beards and action figures are life.'),
-('Ryan', 'Goat', '', '', 'I made that show.'),
-('Brittani', 'Goat', '','', 'Nope.');
+VALUES ('Crystal', 'Atkinson', 'password', 'crystal@me.me', 'Just a girl who likes shows');
 
 INSERT INTO ratings (name, stars)
 VALUES ('Binge-Worthy', 5),
@@ -37,4 +34,4 @@ VALUES ('Binge-Worthy', 5),
 ('Never Again', 0);
 
 INSERT INTO reviews (tagline, posting_date, review_body, show_id, user_id, stars_id)
-VALUES ('This show is so funny....', '1970-01-01 00:00:01', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius ipsa debitis expedita totam, neque, repellendus distinctio error fugit quae modi quam cum nihil iure soluta quis rerum eveniet iusto.', 2, 1, 1);
+VALUES ('This show is so funny....', '2021-02-08 00:00:01', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius ipsa debitis expedita totam, neque, repellendus distinctio error fugit quae modi quam cum nihil iure soluta quis rerum eveniet iusto.', 2, 1, 1);
