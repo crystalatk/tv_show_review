@@ -2,7 +2,8 @@
 
 const express = require('express'),
     router = express.Router(),
-    profileModel = require('../models/profileModel');
+    profileModel = require('../models/profileModel'),
+    showsModel = require('../models/showModel');
 
 router.get('/', async (req, res) => {
     const user_id = req.session.user_id;
@@ -21,6 +22,41 @@ router.get('/', async (req, res) => {
         }
     });
 });
+
+router.get('/edit_review:id', async (req, res) => {
+    const { id } = req.params;
+    const review = await profileModel.getReviewById(id);
+    const getRatings = await showsModel.getRatings();
+    res.render('template', {
+        locals: {
+            title: 'Edit Review',
+            is_logged_in: req.session.is_logged_in,
+            review,
+            user_id: req.session.user_id,
+            getRatings,
+        },
+        partials: {
+            header: 'partials/header',
+            body: "partials/edit_review",
+        }
+    })
+
+})
+
+router.post('/edit_review:id', async (req, res) => {
+    const { id } = req.params;
+    const { user_id, tagline, review_body, stars_id } = req.body;
+    const editReview = await profileModel.editReview(id, tagline, review_body, stars_id);
+    res.redirect('/profile');
+})
+
+router.post('/delete:id', async (req, res) => {
+    const { id } = req.params;
+    const deleteReview = await profileModel.deleteReview(id);
+    res.redirect('/profile');
+})
+
+
 
 
 

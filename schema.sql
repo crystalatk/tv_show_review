@@ -26,8 +26,8 @@ CREATE TABLE users (
     id serial PRIMARY KEY,
     first_name varchar(200) NOT NULL,
     last_name varchar(200) NOT NULL,
-    password text,
-    email text,
+    password text NOT NULL,
+    email text NOT NULL,
     tagline varchar(150)
 );
 

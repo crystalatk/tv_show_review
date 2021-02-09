@@ -12,6 +12,10 @@
         
         <hr>
         <p class="review-p">${review.review_body}</p>
+        <a href="profile/edit_review${review.id}"><button type="submit">EDIT REVIEW</button></a>
+        <form action="/profile/delete${review.id}" method="POST">
+            <button type="submit">DELETE REVIEW</button>
+        </form>
         </li>`
         ).join('')}
     </ul>

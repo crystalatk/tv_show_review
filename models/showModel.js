@@ -105,10 +105,6 @@ class SHOWSModel {
         return response;
     }
 
-    static async getAllActors() {
-        const response = await db.any(`SELECT actors.id, actors.name FROM actors ORDER BY actors.name;`);
-        return response;
-    }
 
 };
 
