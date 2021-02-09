@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     res.render('template', {
         locals: {
             title: "TV Show Categories",
+            is_logged_in: req.session.is_logged_in,
             catList,
         },
         partials: {
@@ -25,6 +26,7 @@ router.get('/:cat_id', async (req, res) => {
     res.render('template', {
         locals: {
             title: showsByCat[0].name,
+            is_logged_in: req.session.is_logged_in,
             showsByCat,
         },
         partials: {

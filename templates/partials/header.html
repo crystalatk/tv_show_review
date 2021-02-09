@@ -4,6 +4,11 @@
         <li><a href="/categories">Categories</a></li>
         <li><a href="/shows">TV Shows!</a></li>
         <li><a href="/actors">Actors</a></li>
-        <li><a href="">Users</a></li>
+        ${!!is_logged_in ? 
+            `<li><a href="/profile">My Profile</a></li>
+            <li><a href="/users/logout">Logout</a></li>`
+            :
+            `<li><a href="/users">Login/Register</a></li>`
+        }
     </ul>
 </header>

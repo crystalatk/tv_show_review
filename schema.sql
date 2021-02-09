@@ -24,10 +24,11 @@ CREATE TABLE shows (
 
 CREATE TABLE users (
     id serial PRIMARY KEY,
-    name text NOT NULL,
+    first_name varchar(200) NOT NULL,
+    last_name varchar(200) NOT NULL,
     password text,
     email text,
-    tagline varchar(50)
+    tagline varchar(150)
 );
 
 CREATE TABLE ratings (
