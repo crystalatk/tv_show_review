@@ -14,11 +14,11 @@
               <p class="subtitle is-6 white">
                 <b>Where to Watch:</b> ${thisShow.where2watch}
                 <br>
-                <b>Actors:</b> ${thisShow.actor1_name}, ${thisShow.actor2_name}, and ${thisShow.actor3_name}
+                <b>Actors:</b> <a href="/actors/${thisShow.actor1_id}">${thisShow.actor1_name}</a>, <a href="/actors/${thisShow.actor2_id}">${thisShow.actor2_name}</a>, and <a href="/actors/${thisShow.actor3_id}">${thisShow.actor3_name}</a>
                 <br>
                 <b>Dates Aired:</b> ${thisShow.dates_aired}
                 <br>
-                <b>Category:</b> <a href="/categories${thisShow.cat_id}">${thisShow.cat_name}</a>
+                <b>Category:</b> <a href="/categories/${thisShow.cat_id}">${thisShow.cat_name}</a>
                 <br>
               </p>
             </div>
@@ -72,6 +72,6 @@ ${!!is_logged_in ?
   </div>`
   :
   `<div>
-    <p>Login to leave a review.</p>
+    <p><a href="/users">Login to leave a review.</a></p>
   </div>`
 }

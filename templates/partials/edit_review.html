@@ -1,0 +1,19 @@
+<form action="edit_review${review.id}" method="POST">
+    <input type="hidden" name="user_id" value='${user_id}'>
+    <label for="">Add a review:</label>
+    <br>
+    <label for="tagline">Create a tagline:</label>
+    <br>
+    <input class="is-rounded border-dark" type="text" id="tagline" name="tagline" value="${review.tagline}">
+    <br>
+    <textarea class="textarea is-rounded border-dark" name="review_body" >${review.review_body}</textarea>
+    <br>
+    <label for="">How many stars would you give this show?</label>
+    ${getRatings.map(rating => 
+    `<div class="choices">
+        <input type="radio" id="stars" name="stars_id" value="${rating.id}" ${review.stars_id === rating.id ? 'checked' : ''} required>
+        <label class="blue" for="stars">${rating.name} (${rating.stars} out of 5 stars)</label>
+    </div>`
+    ).join('')}
+    <button type="submit">Submit</button>    
+</form>
