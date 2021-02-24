@@ -26,6 +26,8 @@ router.get('/', async (req, res) => {
 router.get('/edit_review:id', async (req, res) => {
     const { id } = req.params;
     const review = await profileModel.getReviewById(id);
+    console.log("DATE:", review.posting_date);
+    console.log(review.posting_date.getDay());
     const getRatings = await showsModel.getRatings();
     res.render('template', {
         locals: {
