@@ -10,7 +10,6 @@ const express = require('express'),
     app = express();
 
 const es6Renderer = require('express-es6-template-engine');
-const { response } = require('express');
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
